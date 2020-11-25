@@ -15,7 +15,7 @@ def contact(request):
     
     return render(request,'home/contact.html')
 
-def services(request):
+def desktop(request):
     price=[]
     urls=[]
     total=0
@@ -29,7 +29,7 @@ def services(request):
     data=get_prices(5,2)
     total="{:,}".format(total)
 
-    return render(request,'home/services.html',{'price':price,'total':total,'url':urls,'desc':data})
+    return render(request,'home/desktop.html',{'price':price,'total':total,'url':urls,'desc':data})
 
 
 
