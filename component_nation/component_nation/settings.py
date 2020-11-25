@@ -127,3 +127,7 @@ ASSETS_URL = '/assets/'
 VENDOR_ROOT = BASE_DIR / 'Web_data' / 'vendor'
 
 VENDOR_URL = '/vendor/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+MEDIA_URL = '/media/'

@@ -110,99 +110,14 @@
           <div class="col-md-8">
             <section class='tabs-content'>
               <article id='tabs-1'>
-
-
-                <img src="assets/images/ryzen5_3500X.jpg" alt="">
-                <h4>Ryzen5 3500X</h4>
-                <p>6 Cores & 6 Threads<br>
-                   Base Clock: 3.6GHz<br>Max Boost Clock: up to 4.1GHz<br>35MB Cache<br>TDP: 65W <br>
-                   System Memory Specification: 3200MHz<br>System Memory Type: DDR4<br>Memory Channels: 2 <br>
-                   <a href="https://amzn.to/2SP3Yxj" target="_blank">Buy Here</a></p>
-                
-                <img src="assets/images/asus_tuf_b450.jpg" alt="">
-                <h4>ASUS TUF B450-Plus Gaming Motherboard (ATX)</h4>
-                <p>Batteries:	                 1 Lithium ion batteries required. (included)<br>
-                   Item model number:	         90MB0YM0-M0EAY0<br>
-                   RAM Size:	                 64 GB<br>
-                   Memory Slots Available:	 4<br>
-                   Memory Technology:	         DDR4<br>
-                   Ram Memory Technology:	 DDR4<br>
-                   Computer Memory Type:	         DDR4 SDRAM<br>
-                   Processor Socket:	         Socket AM4<br>
-                   Compatible Processor Types:	 AMD 1st Gerenration Ryzen<br>
-                   Graphics Card Interface:	 PCI-E<br>
-                   Mounting Hardware:	         Motherboard<br>
-                   Number Of Items:	         1<br>
-                   Wattage:	                 125<br>
-                   Batteries Included:	         Yes<br>
-                   Batteries Required:	         No<br>
-                   Wireless Type:	         Bluetooth<br>
-                   Form Factor:	                 Atx<br>
-                   Device Type	:                 Motherboards<br>
-                   <a href="https://amzn.to/310Y94d" target="_blank">Buy Here</a></p>
-
-                <img src="assets/images/ram_8gb.jpg" alt="">
-                <h4>Corsair Vengeance LPX 8GB (1x8GB) DDR4 3200MHZ (Black)</h4>
-                <p>RAM Size:	8 GB<br>
-                   Memory Technology:	DDR4<br>
-                   Computer Memory Type:	DDR4 SDRAM<br>
-                   Memory Clock Speed:	1<br>
-                   Voltage:	1.2 Volts<br>
-                   <a href="https://amzn.to/3jVNXBw" target="_blank">Buy Here</a></p>
-
-              <img src="assets/images/ssd_500gb.jpg" alt="">
-                <h4>Crucial MX500 500GB 2.5-inch SSD</h4>
-                <p>Data Transfer Rate: 6 Gigabits Per Second<br>
-                   Hard Drive Interface: Solid State<br>
-                   Memory Storage Capacity: 500 GB<br></p>
-                   <a href="https://amzn.to/2SRSMzT" target="_blank">Buy Here</a></p>
-
-
-              <img src="assets/images/Western Digital WD10EZEX 1TB Internal Hard Drive for Desktop.jpg" alt="">
-                <h4>Western Digital WD10EZEX 1TB Internal Hard Drive for Desktop (Blue)</h4>
-                <p>Hard Drive Size:1 TB<br>
-                   Hard Drive Interface:Serial ATA<br>
-                   Hard Disk Rotational Speed:7200 RPM<br>
-                   Buffer Size:64 MB<br>
-                   Data Transfer Rate:6 Gigabits Per Second<br>
-                    <a href="https://amzn.to/2SPCyY5" target="_blank">Buy Here</a></p>   
-
-
-              <img src="assets/images/Gigabyte GeForce GTX 1660 OC 6GB GDDR5 Graphics Card, 2X Windforce Fans.jpg" alt="">
-                <h4>Gigabyte GeForce GTX 1660 OC 6GB GDDR5 Graphics Card, 2X Windforce Fans</h4>
-                <p>Number of Ports:4<br>
-                   Graphics Card Ram Size:6 GB<br>
-                   Graphics Coprocessor:NVIDIA GeForce GTX 1660<br>
-                   Wattage:450 Watts<br>
-                   Special Features:DDR6 GPU<br></p>
-                    <a href="https://amzn.to/3lTiXTB" target="_blank">Buy Here</a></p>   
-
-             <img src="assets/images/K501L RGB Mid Tower Gaming Cabinet with Pre-Installed Fans and Tempered Glass Side Panel.jpg" alt="">
-                <h4> K501L RGB Mid Tower Gaming Cabinet with Pre-Installed Fans and Tempered Glass Side Panel</h4>
-                <p>Item Height: 45.1 Centimeters<br>
-                   Item Width: 20 Centimeters<br>
-                   Item Weight: 4 kg 860 g<br>
-                   Are Fans Included: Yes<br></p>
-                    <a href="https://amzn.to/2V8EA73" target="_blank">Buy Here</a></p>   
-
-
-             <img src="assets/images/Corsair CV550, 80 Plus Bronze Certified, Power Supply - Black.jpg" alt="">
-                <h4> Corsair CV550, 80 Plus Bronze Certified, Power Supply - Black</h4>
-                <p>Brand: Corsair<br>
-                   Product Dimensions: 15 x 12.5 x 8.6 cm; 1.3 Kilograms<br>
-                   Wattage: 550 Watts<br>
-                   Is Modular: No<br></p>
-                    <a href="https://amzn.to/3lBu9nm" target="_blank">Buy Here</a></p><br><br>
-
-
-
-
-
-
-
-
-
-
+               
+                {% for item in data70k %}
+                <img src="media/{{ item.img }}" alt="">
+                <h4>{{item.product}}</h4>
+                <p>{{item.desc|linebreaks }}</p>
+                <p>{{item.price}} <a href="{{item.url}}" target="_blank">Buy Here</a></p>
+                {% endfor %}
+               
 
               </article>
               <article id='tabs-2'>

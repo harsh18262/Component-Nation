@@ -30,3 +30,4 @@ urlpatterns = [
 
 urlpatterns += static(settings.ASSETS_URL, document_root=settings.ASSETS_ROOT)
 urlpatterns += static(settings.VENDOR_URL, document_root=settings.VENDOR_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

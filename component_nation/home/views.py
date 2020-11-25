@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Prebuilt_70k,Prebuilt_80k,Prebuilt_90k,Prebuilt_1L
 from fetch_price import *
 import re
 # Create your views here.
@@ -21,15 +21,13 @@ def desktop(request):
     total=0
 
 
-    for i in range (2,10):
-        price.append(fetch_prices(2,i))
-        urls.append(fetch_urls(2,i))
-    for i in range (8):
-        total = total + int(re.sub("[^0-9]","",price[i]))
-    data=get_prices(5,2)
-    total="{:,}".format(total)
+    data70k=Prebuilt_70k.objects.all()
+    data80k=Prebuilt_80k.objects.all()
+    data90k=Prebuilt_90k.objects.all()
+    data1l=Prebuilt_1L.objects.all()
 
-    return render(request,'home/desktop.html',{'price':price,'total':total,'url':urls,'desc':data})
+
+    return render(request,'home/desktop.html',{'data70k':data70k,'data80k':data80k,'data90k':data90k,'data1l':data1l})
 
 
 
