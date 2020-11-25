@@ -26,6 +26,7 @@ urlpatterns = [
     path('about', views.about,name='about'),
     path('desktop', views.desktop,name='desktop'),
     path('contact', views.contact,name='contact'),
+    path('update', views.update,name='update'),
 ]
 
 urlpatterns += static(settings.ASSETS_URL, document_root=settings.ASSETS_ROOT)
