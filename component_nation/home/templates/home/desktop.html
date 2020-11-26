@@ -131,7 +131,7 @@
                   <tbody>
                     {% for item in data70k %}
                     <tr>
-                      <th scope="row">{{item.id}}</th>
+                      <th scope="row">{{forloop.counter}}</th>
                       <td>{{item.product}}</td>
                       <td>{{item.price}}</td>
                       <td><a href="{{item.url}}" target="_blank">Buy Here</a></td>
@@ -158,6 +158,33 @@
                 <p>{{item.price}} <a href="{{item.url}}" target="_blank">Buy Here</a></p>
                 {% endfor %}
                 <br><br>
+
+                <table class="table table-border">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Part</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Link</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in data80k %}
+                    <tr>
+                      <th scope="row">{{forloop.counter}}</th>
+                      <td>{{item.product}}</td>
+                      <td>{{item.price}}</td>
+                      <td><a href="{{item.url}}" target="_blank">Buy Here</a></td>
+                    </tr>
+                    {%endfor%}
+                    <tr>
+                      <th scope="row"></th>
+                      <td>Total</td>
+                      <td>₹{{t80}}</td>
+                    </tr>
+
+                  </tbody>
+                </table>
 
               </article>
               <article id='tabs-3'>

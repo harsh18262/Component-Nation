@@ -21,12 +21,13 @@ def desktop(request):
     data80k=Prebuilt_80k.objects.all()
     data90k=Prebuilt_90k.objects.all()
     data1l=Prebuilt_1L.objects.all()
-    t70=0
-    for item in data70k:
-        t70 = t70 + int(re.sub("[^0-9]","",item.price))
-    t70="{:,}".format(t70)
+    t70=total(data70k)
+    t80=total(data80k)
+    # t90=total(data90k)
+    # t1=total(data1l)
 
-    return render(request,'home/desktop.html',{'data70k':data70k,'data80k':data80k,'data90k':data90k,'data1l':data1l,'t70':t70})
+
+    return render(request,'home/desktop.html',{'data70k':data70k,'data80k':data80k,'data90k':data90k,'data1l':data1l,'t70':t70,'t80':t80})
 
 def update(request):
 

@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from openpyxl import *
+import re
 
 # def fetch_prices(r,c):
 #     driver=init_selenium()
@@ -70,3 +71,10 @@ def fetch_prices(data):
         driver.close()
 
     return prices
+
+def total(data):
+    total=0
+    for item in data:
+        total = total + int(re.sub("[^0-9]","",item.price))
+    total="{:,}".format(total)
+    return total
