@@ -37,10 +37,27 @@ def update(request):
     data80k=Prebuilt_80k.objects.all()
     data90k=Prebuilt_90k.objects.all()
     data1l=Prebuilt_1L.objects.all()
+    
     for item in data70k:
         item.price=price[i]
         i+=1
         item.save()
+    price=[]
+    for i in range (2,10):
+        price.append(fetch_prices(3,i))
+    i=0
+    for item in data80k:
+        item.price=price[i]
+        i+=1
+        item.save()
+    price=[]
+    # for i in range (2,10):
+    #     price.append(fetch_prices(4,i))
+    # i=0
+    # for item in data90k:
+    #     item.price=price[i]
+    #     i+=1
+    #     item.save()
     return render(request,'home/update.html')
 
 
