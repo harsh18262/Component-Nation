@@ -4,33 +4,33 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from openpyxl import *
 
-def fetch_prices(r,c):
-    driver=init_selenium()
+# def fetch_prices(r,c):
+#     driver=init_selenium()
  
-    loc = ("Pre-Build Pc.xlsx")
+#     loc = ("Pre-Build Pc.xlsx")
  
-    wb=load_workbook(loc)
-    sheet1 = wb["Sheet1"]
-    sheet2 = wb["Sheet2"]
+#     wb=load_workbook(loc)
+#     sheet1 = wb["Sheet1"]
+#     sheet2 = wb["Sheet2"]
    
 
-    url=sheet1.cell(r,c).value
+#     url=sheet1.cell(r,c).value
 
-    driver.get(url)
+#     driver.get(url)
 
-    soup = BeautifulSoup(driver.page_source, "html.parser")
+#     soup = BeautifulSoup(driver.page_source, "html.parser")
 
-    price_row = soup.find(id="priceblock_ourprice_row")
-    if(price_row==None):
-        price_row = soup.find(id="priceblock_dealprice_row")
-        price = price_row.find(class_="a-size-medium a-color-price priceBlockDealPriceString").get_text()
-    else:
-        price = price_row.find(class_="a-size-medium a-color-price priceBlockBuyingPriceString").get_text()
+#     price_row = soup.find(id="priceblock_ourprice_row")
+#     if(price_row==None):
+#         price_row = soup.find(id="priceblock_dealprice_row")
+#         price = price_row.find(class_="a-size-medium a-color-price priceBlockDealPriceString").get_text()
+#     else:
+#         price = price_row.find(class_="a-size-medium a-color-price priceBlockBuyingPriceString").get_text()
 
 
-    sheet2.cell(r,c).value=price
-    wb.save(loc)
-    driver.close()
+#     sheet2.cell(r,c).value=price
+#     wb.save(loc)
+#     driver.close()
 
 def init_selenium():
     CHROME_PATH = '/usr/bin/google-chrome-stable'
@@ -42,3 +42,31 @@ def init_selenium():
     chrome_options.binary_location = CHROME_PATH
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,chrome_options=chrome_options)
     return driver
+
+
+def fetch_prices(data):
+    
+    urls=[]
+    prices=[]
+    for item in data:
+        urls.append(item.url)
+
+    for url in urls:
+        print(url)
+        driver=init_selenium()
+        driver.get(url)
+
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+
+        price_row = soup.find(id="priceblock_ourprice_row")
+        if(price_row==None):
+            price_row = soup.find(id="priceblock_dealprice_row")
+            prices.append(price_row.find(class_="a-size-medium a-color-price priceBlockDealPriceString").get_text())
+        else:
+            prices.append(price_row.find(class_="a-size-medium a-color-price priceBlockBuyingPriceString").get_text())
+
+
+
+        driver.close()
+
+    return prices
