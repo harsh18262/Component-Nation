@@ -59,6 +59,12 @@ def update(request):
     return render(request,'home/update.html')
 
 
+def temp(request):
+    
+    return render(request,'home/temp.html')
+
+
+
 
 
 

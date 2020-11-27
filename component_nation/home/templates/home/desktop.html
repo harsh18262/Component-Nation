@@ -197,6 +197,33 @@
                 {% endfor %}
                 <br><br>
 
+                <table class="table table-border">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Part</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Link</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in data90k %}
+                    <tr>
+                      <th scope="row">{{forloop.counter}}</th>
+                      <td>{{item.product}}</td>
+                      <td>{{item.price}}</td>
+                      <td><a href="{{item.url}}" target="_blank">Buy Here</a></td>
+                    </tr>
+                    {%endfor%}
+                    <tr>
+                      <th scope="row"></th>
+                      <td>Total</td>
+                      <td>₹{{t90}}</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
               </article>
               <article id='tabs-4'>
                 {% for item in data1L %}
