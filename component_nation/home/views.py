@@ -23,7 +23,7 @@ def desktop(request):
     data1l=Prebuilt_1L.objects.all()
     t70=total(data70k)
     t80=total(data80k)
-    # t90=total(data90k)
+    t90=total(data90k)
     # t1=total(data1l)
 
 
@@ -50,13 +50,12 @@ def update(request):
         item.price=price[i]
         i+=1
         item.save()
-    # for i in range (2,10):
-    #     price.append(fetch_prices(4,i))
-    # i=0
-    # for item in data90k:
-    #     item.price=price[i]
-    #     i+=1
-    #     item.save()
+    price=fetch_prices(data90k)
+    i=0
+    for item in data90k:
+        item.price=price[i]
+        i+=1
+        item.save()
     return render(request,'home/update.html')
 
 
