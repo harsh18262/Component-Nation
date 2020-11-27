@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Prebuilt_70k,Prebuilt_80k,Prebuilt_90k,Prebuilt_1L
+# from .models import Prebuilt_70k,Prebuilt_80k,Prebuilt_90k,Prebuilt_1L
+from .models import *
 from update_prices import *
 import re
 # Create your views here.
@@ -38,18 +39,18 @@ def update(request):
     data1l=Prebuilt_1L.objects.all()
     
 
-    # price=fetch_prices(data70k)
-    # i=0
-    # for item in data70k:
-    #     item.price=price[i]
-    #     i+=1
-    #     item.save()
-    # price=fetch_prices(data80k)
-    # i=0
-    # for item in data80k:
-    #     item.price=price[i]
-    #     i+=1
-    #     item.save()
+    price=fetch_prices(data70k)
+    i=0
+    for item in data70k:
+        item.price=price[i]
+        i+=1
+        item.save()
+    price=fetch_prices(data80k)
+    i=0
+    for item in data80k:
+        item.price=price[i]
+        i+=1
+        item.save()
     price=fetch_prices(data90k)
     i=0
     for item in data90k:
@@ -60,13 +61,21 @@ def update(request):
 
 
 def laptop_coding(request):
+    dataall=Laptop_Coding_Base.objects.all()
+    data30k=Laptop_Coding_30k.objects.all()
+    data40k=Laptop_Coding_40k.objects.all()
+    data50k=Laptop_Coding_50k.objects.all()
     
-    return render(request,'home/laptop/coding.html')
+    return render(request,'home/laptop/coding.html',{'dataall':dataall,'data30k':data30k,'data40k':data40k,'data50k':data50k})
 
 
 def laptop_gaming(request):
+    dataall=Laptop_Gaming_Base.objects.all()
+    data30k=Laptop_Gaming_30k.objects.all()
+    data40k=Laptop_Gaming_40k.objects.all()
+    data50k=Laptop_Gaming_50k.objects.all()
     
-    return render(request,'home/laptop/gaming.html')
+    return render(request,'home/laptop/gaming.html',{'dataall':dataall,'data30k':data30k,'data40k':data40k,'data50k':data50k})
 
 def temp(request):
     
