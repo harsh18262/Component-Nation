@@ -27,7 +27,7 @@ def desktop(request):
     # t1=total(data1l)
 
 
-    return render(request,'home/desktop.html',{'data70k':data70k,'data80k':data80k,'data90k':data90k,'data1l':data1l,'t70':t70,'t80':t80})
+    return render(request,'home/desktop.html',{'data70k':data70k,'data80k':data80k,'data90k':data90k,'data1l':data1l,'t70':t70,'t80':t80,'t90':t90})
 
 def update(request):
 
@@ -38,18 +38,18 @@ def update(request):
     data1l=Prebuilt_1L.objects.all()
     
 
-    price=fetch_prices(data70k)
-    i=0
-    for item in data70k:
-        item.price=price[i]
-        i+=1
-        item.save()
-    price=fetch_prices(data80k)
-    i=0
-    for item in data80k:
-        item.price=price[i]
-        i+=1
-        item.save()
+    # price=fetch_prices(data70k)
+    # i=0
+    # for item in data70k:
+    #     item.price=price[i]
+    #     i+=1
+    #     item.save()
+    # price=fetch_prices(data80k)
+    # i=0
+    # for item in data80k:
+    #     item.price=price[i]
+    #     i+=1
+    #     item.save()
     price=fetch_prices(data90k)
     i=0
     for item in data90k:
@@ -58,6 +58,15 @@ def update(request):
         item.save()
     return render(request,'home/update.html')
 
+
+def laptop_coding(request):
+    
+    return render(request,'home/laptop/coding.html')
+
+
+def laptop_gaming(request):
+    
+    return render(request,'home/laptop/gaming.html')
 
 def temp(request):
     
