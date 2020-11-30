@@ -30,6 +30,8 @@ urlpatterns = [
     path('laptop_gaming', views.laptop_gaming,name='laptop_gaming'),
     path('laptop_coding', views.laptop_coding,name='laptop_coding'),
     path('email', views.email,name='email'),
+    path('email_req', views.email_req,name='email_request'),
+    path('consoles', views.console,name='consoles'),
     path('temp', views.temp,name='temp'),
 ]
 

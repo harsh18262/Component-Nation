@@ -61,6 +61,12 @@ def update(request):
         item.price=price[i]
         i+=1
         item.save()
+    price=fetch_prices(data1l)
+    i=0
+    for item in data1l:
+        item.price=price[i]
+        i+=1
+        item.save()
     return render(request,'home/update.html')
 
 
@@ -82,18 +88,47 @@ def laptop_gaming(request):
     
     return render(request,'home/laptop/gaming.html',{'dataall':dataall,'data30k':data30k,'data40k':data40k,'data50k':data50k})
 
-def temp(request):
-    email="harshwardhanmehrotra@gmail.com"
-    url="http://127.0.0.1:8000/email"
-    send_mail(email,url)
-    return render(request,'home/temp.html')
 
 def email(request):
-    data=Prebuilt_70k.objects.all()
+    a=request.GET.get('a')
+    if(a=='1'):
+        data=Prebuilt_70k.objects.all()
+    elif(a=='2'):
+        data=Prebuilt_80k.objects.all()
+   
     return render(request,'home/email.html',{'data':data})
 
+def email_req(request):
+    email=request.GET.get('email')
+    a=str(request.GET.get('a'))
+    url="http://127.0.0.1:8000/email?a="+a
+    if(email==None):
+        return render(request,'home/email_request.html')
+    else:
+        send_mail(email,url)
+        email=None
+        a=None    
+        return render(request,'home/email_request.html')
 
 
 
 
+def temp(request):
+    data=Prebuilt_70k.objects.all()
+    comp=[]
+    #for item in data:
+    #    comp.append()
+
+    data1=Prebuilt_80k.objects.all()
+
+    return render(request,'home/temp.html',{'data':data,'data1':data1,'new':new})
+
+
+def console(request):
+    dataall=Console_Base.objects.all()
+    data_micro=Console_micro.objects.all()
+    data_sony=Console_sony.objects.all()
+    data_ninten=Console_ninten.objects.all()
+    
+    return render(request,'home/console.html',{'dataall':dataall,'data_micro':data_micro,'data_sony':data_sony,'data_ninten':data_ninten})
 
