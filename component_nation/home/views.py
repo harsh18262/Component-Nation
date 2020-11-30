@@ -29,10 +29,10 @@ def desktop(request):
     t70=total(data70k)
     t80=total(data80k)
     t90=total(data90k)
-    # t1=total(data1l)
+    t1=total(data1l)
 
 
-    return render(request,'home/desktop.html',{'data70k':data70k,'data80k':data80k,'data90k':data90k,'data1l':data1l,'t70':t70,'t80':t80,'t90':t90})
+    return render(request,'home/desktop.html',{'data70k':data70k,'data80k':data80k,'data90k':data90k,'data1l':data1l,'t70':t70,'t80':t80,'t90':t90,'t1':t1})
 
 def update(request):
 
