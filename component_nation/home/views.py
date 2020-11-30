@@ -3,7 +3,11 @@ from django.http import HttpResponse
 # from .models import Prebuilt_70k,Prebuilt_80k,Prebuilt_90k,Prebuilt_1L
 from .models import *
 from update_prices import *
+from mail import *
 import re
+
+from django.template import loader
+
 # Create your views here.
 def home(request):
     return render(request,'home/index.html')
@@ -70,6 +74,7 @@ def laptop_coding(request):
 
 
 def laptop_gaming(request):
+    
     dataall=Laptop_Gaming_Base.objects.all()
     data30k=Laptop_Gaming_30k.objects.all()
     data40k=Laptop_Gaming_40k.objects.all()
@@ -78,8 +83,14 @@ def laptop_gaming(request):
     return render(request,'home/laptop/gaming.html',{'dataall':dataall,'data30k':data30k,'data40k':data40k,'data50k':data50k})
 
 def temp(request):
-    
+    email="harshwardhanmehrotra@gmail.com"
+    url="http://127.0.0.1:8000/email"
+    send_mail(email,url)
     return render(request,'home/temp.html')
+
+def email(request):
+    data=Prebuilt_70k.objects.all()
+    return render(request,'home/email.html',{'data':data})
 
 
 
