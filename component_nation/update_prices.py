@@ -35,15 +35,12 @@ import re
 #     driver.close()
 
 def init_selenium():
-    req=requests.get('http://pubproxy.com/api/proxy?format=txt&type=https&google=true&country=IND')
-   # PROXY ='103.242.105.121:8080'
     CHROME_PATH = '/usr/bin/google-chrome-stable'
     CHROMEDRIVER_PATH = '/usr/bin/chromedriver'
     WINDOW_SIZE = "1920,1080"
     chrome_options = Options()
-   # chrome_options.add_argument("--headless")
-   # chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
-    #chrome_options.add_argument('--proxy-server=%s' % PROXY)
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
     chrome_options.binary_location = CHROME_PATH
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,chrome_options=chrome_options)
     return driver

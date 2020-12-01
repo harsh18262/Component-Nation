@@ -95,7 +95,10 @@ def email(request):
         data=Prebuilt_70k.objects.all()
     elif(a=='2'):
         data=Prebuilt_80k.objects.all()
-   
+    elif(a=='3'):
+        data=Prebuilt_90k.objects.all()
+    elif(a=='4'):
+        data=Prebuilt_1L.objects.all()
     return render(request,'home/email.html',{'data':data})
 
 def email_req(request):
@@ -115,13 +118,14 @@ def email_req(request):
 
 def temp(request):
     data=Prebuilt_70k.objects.all()
-    comp=[]
-    #for item in data:
-    #    comp.append()
-
     data1=Prebuilt_80k.objects.all()
-
-    return render(request,'home/temp.html',{'data':data,'data1':data1,'new':new})
+    comp=[]
+    name=['Processor','Motherboard','3','4','5','6','7','8','9']
+    for item,item1,name in zip(data,data1,name):
+        comp.append(name)
+        comp.append(item.product)
+        comp.append(item1.product)
+    return render(request,'home/temp.html',{'data':data,'data1':data1,'comp':comp})
 
 
 def console(request):
