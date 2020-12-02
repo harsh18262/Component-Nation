@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 table {
   border-collapse: collapse;
@@ -36,16 +37,21 @@ tr:nth-child(even) {
 <body>
   {%load mathfilters %}
 <h2>Comparison Table</h2>
-
+<script>    
+    if(typeof window.history.pushState == 'function') {
+        window.history.pushState({}, "Hide", "/compare");
+    }
+</script>
 <table>
   <tr>
     <th style="width:50%">Features</th>
-    <th>Basic</th>
-    <th>Pro</th>
+    <th>Product 1</th>
+    <th>Product 2</th>
   </tr>
+  
   {%for item in comp%}
-  {% if forloop.counter|mod:3 != 0 %}
-  <tr>
+  {% if forloop.counter|mod:2 != 0 %}
+   
   {% endif %}
     <td>{{item}}</td>
 
@@ -54,26 +60,7 @@ tr:nth-child(even) {
   {% endif %}
 
   {%endfor%}
-  <tr>
-    <td>Motherboard</td>
-    <td><i class="fa fa-check"></i></td>
-    <td><i class="fa fa-check"></i></td>
-  </tr>
-  <tr>
-    <td>Sample text</td>
-    <td><i class="fa fa-check"></i></td>
-    <td><i class="fa fa-check"></i></td>
-  </tr>
-  <tr>
-    <td>Sample text</td>
-    <td><i class="fa fa-remove"></i></td>
-    <td><i class="fa fa-check"></i></td>
-  </tr>
-  <tr>
-    <td>Sample text</td>
-    <td><i class="fa fa-check"></i></td>
-    <td><i class="fa fa-check"></i></td>
-  </tr>
+  
 </table>
 
 </body>

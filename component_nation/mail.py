@@ -8,7 +8,7 @@ def send_mail(receiver_email,url):
   port = 465  # For SSL
   smtp_server = "smtp.gmail.com"
   sender_email = "componentnation@gmail.com"  # Enter your address
-  password = 'sohambeta'
+  password = ''
   # Create message container - the correct MIME type is multipart/alternative.
   msg = MIMEMultipart('alternative')
   msg['Subject'] = "Thank You For Using Component Nation"

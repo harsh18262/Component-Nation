@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 # from .models import Prebuilt_70k,Prebuilt_80k,Prebuilt_90k,Prebuilt_1L
 from .models import *
 from update_prices import *
@@ -93,13 +94,17 @@ def email(request):
     a=request.GET.get('a')
     if(a=='1'):
         data=Prebuilt_70k.objects.all()
+        t=total(data)
     elif(a=='2'):
         data=Prebuilt_80k.objects.all()
+        t=total(data)
     elif(a=='3'):
         data=Prebuilt_90k.objects.all()
+        t=total(data)
     elif(a=='4'):
         data=Prebuilt_1L.objects.all()
-    return render(request,'home/email.html',{'data':data})
+        t=total(data)
+    return render(request,'home/email.html',{'data':data,'total':t})
 
 def email_req(request):
     email=request.GET.get('email')
@@ -117,15 +122,15 @@ def email_req(request):
 
 
 def temp(request):
-    data=Prebuilt_70k.objects.all()
-    data1=Prebuilt_80k.objects.all()
-    comp=[]
-    name=['Processor','Motherboard','3','4','5','6','7','8','9']
-    for item,item1,name in zip(data,data1,name):
-        comp.append(name)
-        comp.append(item.product)
-        comp.append(item1.product)
-    return render(request,'home/temp.html',{'data':data,'data1':data1,'comp':comp})
+    # data=Prebuilt_70k.objects.all()
+    # data1=Prebuilt_80k.objects.all()
+    # comp=[]
+    # name=['Processor','Motherboard','Ram','SSD','HDD','Graphics Card','Case','Power Supply']
+    # for item,item1,name in zip(data,data1,name):
+    #     comp.append(name)
+    #     comp.append(item.product)
+    #     comp.append(item1.product)
+    return render(request,'home/temp.html')
 
 
 def console(request):
@@ -135,4 +140,34 @@ def console(request):
     data_ninten=Console_ninten.objects.all()
     
     return render(request,'home/console.html',{'dataall':dataall,'data_micro':data_micro,'data_sony':data_sony,'data_ninten':data_ninten})
+
+def compare(request):
+    a=request.GET.get('a')
+    b=request.GET.get('b')
+    
+    if(a=='1'):
+        data=Prebuilt_70k.objects.all()
+    elif(a=='2'):
+        data=Prebuilt_80k.objects.all()
+    elif(a=='3'):
+        data=Prebuilt_90k.objects.all()
+    elif(a=='4'):
+        data=Prebuilt_1L.objects.all()
+    if(b=='1'):
+        data1=Prebuilt_70k.objects.all()
+    elif(b=='2'):
+        data1=Prebuilt_80k.objects.all()
+    elif(b=='3'):
+        data1=Prebuilt_90k.objects.all()
+    elif(b=='4'):
+        data1=Prebuilt_1L.objects.all()
+
+    comp=[]
+    name=['Processor','Motherboard','Ram','SSD','HDD','Graphics Card','Case','Power Supply']
+    for item,item1,name in zip(data,data1,name):
+        comp.append(name)
+        comp.append(item.product)
+        comp.append(item1.product)
+
+    return render(request,'home/compare.html',{'comp':comp})
 

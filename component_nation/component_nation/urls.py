@@ -32,6 +32,7 @@ urlpatterns = [
     path('email', views.email,name='email'),
     path('email_req', views.email_req,name='email_request'),
     path('consoles', views.console,name='consoles'),
+    path('compare', views.compare,name='compare'),
     path('temp', views.temp,name='temp'),
 ]
 

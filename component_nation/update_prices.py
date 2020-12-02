@@ -3,8 +3,9 @@ from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from openpyxl import *
 import re
+import locale
+locale.setlocale(locale.LC_MONETARY, 'en_IN')
 
 # def fetch_prices(r,c):
 #     driver=init_selenium()
@@ -77,6 +78,12 @@ def fetch_prices(data):
 def total(data):
     total=0
     for item in data:
-        total = total + int(re.sub("[^0-9]","",item.price))
-    total="{:,}".format(total)
+        if(item.product=="Adata XPG D30 16GB 3000Mhz DDR4 (Qt.2)"):
+            total = total + int(re.sub("[^0-9]","",item.price))
+            total = total + int(re.sub("[^0-9]","",item.price))
+        else:
+            total = total + int(re.sub("[^0-9]","",item.price))
+    # total="{:,}".format(total)
+    total=locale.currency(total, grouping=True)
+
     return total
