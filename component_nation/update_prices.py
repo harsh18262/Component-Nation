@@ -5,35 +5,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import re
 import locale
+import logging
+
+
 locale.setlocale(locale.LC_MONETARY, 'en_IN')
 
-# def fetch_prices(r,c):
-#     driver=init_selenium()
- 
-#     loc = ("Pre-Build Pc.xlsx")
- 
-#     wb=load_workbook(loc)
-#     sheet1 = wb["Sheet1"]
-#     sheet2 = wb["Sheet2"]
-   
 
-#     url=sheet1.cell(r,c).value
-
-#     driver.get(url)
-
-#     soup = BeautifulSoup(driver.page_source, "html.parser")
-
-#     price_row = soup.find(id="priceblock_ourprice_row")
-#     if(price_row==None):
-#         price_row = soup.find(id="priceblock_dealprice_row")
-#         price = price_row.find(class_="a-size-medium a-color-price priceBlockDealPriceString").get_text()
-#     else:
-#         price = price_row.find(class_="a-size-medium a-color-price priceBlockBuyingPriceString").get_text()
-
-
-#     sheet2.cell(r,c).value=price
-#     wb.save(loc)
-#     driver.close()
 
 def init_selenium():
     CHROME_PATH = '/usr/bin/google-chrome-stable'
@@ -51,24 +28,29 @@ def fetch_prices(data):
     
     urls=[]
     prices=[]
-    for item in data:
-        urls.append(item.url)
+    # for item in data:
+    #     urls.append(item.url)
     print("abcdefgh")
-    for url in urls:
-        
+    for item in data:
+        url=item.url
         print(url)
         driver=init_selenium()
         driver.get(url)
 
         soup = BeautifulSoup(driver.page_source, "html.parser")
 
-        price_row = soup.find(id="priceblock_ourprice_row")
-        if(price_row==None):
-            price_row = soup.find(id="priceblock_dealprice_row")
-            prices.append(price_row.find(class_="a-size-medium a-color-price priceBlockDealPriceString").get_text())
-        else:
-            prices.append(price_row.find(class_="a-size-medium a-color-price priceBlockBuyingPriceString").get_text())
-
+        try:
+            price_row = soup.find(id="priceblock_ourprice_row")
+            if(price_row==None):
+                price_row = soup.find(id="priceblock_dealprice_row")
+                prices.append(price_row.find(class_="a-size-medium a-color-price priceBlockDealPriceString").get_text())
+            else:
+                prices.append(price_row.find(class_="a-size-medium a-color-price priceBlockBuyingPriceString").get_text())
+        except:
+            prices.append(item.price)
+            print("price not updated")
+            logging.exception(IndexError)
+            
 
 
         driver.close()

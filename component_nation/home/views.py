@@ -42,6 +42,7 @@ def update(request):
     data80k=Prebuilt_80k.objects.all()
     data90k=Prebuilt_90k.objects.all()
     data1l=Prebuilt_1L.objects.all()
+    data_console=Console_Base.objects.all()
     
 
     price=fetch_prices(data70k)
@@ -68,6 +69,13 @@ def update(request):
         item.price=price[i]
         i+=1
         item.save()
+    price=fetch_prices(data_console)
+    i=0
+    for item in data_console:
+        item.price=price[i]
+        i+=1
+        item.save()
+    
     return render(request,'home/update.html')
 
 
