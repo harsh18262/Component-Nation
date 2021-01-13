@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-# from .models import Prebuilt_70k,Prebuilt_80k,Prebuilt_90k,Prebuilt_1L
 from .models import *
 from update_prices import *
 from mail import *
@@ -11,11 +10,12 @@ from django.template import loader
 
 # Create your views here.
 def home(request):
+    
     return render(request,'home/index.html')
 
-def about(request):
-    
-    return render(request,'home/about.html')
+def aboutus(request):
+    data=about.objects.all()
+    return render(request,'home/about.html',{'data':data})
 
 def contact(request):
     
@@ -101,7 +101,7 @@ def update_laptops(request):
 
 def laptop_coding(request):
     dataall=Laptop_Coding_Base.objects.all()
-    data30k=Laptop_Coding_30k.objects.all()
+    data30k=about.objects.all()
     data40k=Laptop_Coding_40k.objects.all()
     data50k=Laptop_Coding_50k.objects.all()
     
@@ -160,15 +160,9 @@ def callback_req(request):
 
 
 def temp(request):
-    # data=Prebuilt_70k.objects.all()
-    # data1=Prebuilt_80k.objects.all()
-    # comp=[]
-    # name=['Processor','Motherboard','Ram','SSD','HDD','Graphics Card','Case','Power Supply']
-    # for item,item1,name in zip(data,data1,name):
-    #     comp.append(name)
-    #     comp.append(item.product)
-    #     comp.append(item1.product)
-    return render(request,'home/temp.html')
+    #dataa=about.objects.all()
+    dataa=about.objects.all()
+    return render(request,'home/temp.html',{'data1':dataa})
 
 
 def console(request):

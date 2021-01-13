@@ -1,6 +1,12 @@
 from django.db import models
 
 # Create your models here.
+class about(models.Model):
+    id=models.AutoField(primary_key=True)
+    Name=models.TextField(default=" ")
+    Post=models.TextField(default=" ")
+    Description=models.TextField(default=" ")
+    img = models.ImageField(upload_to='about/images',default='default.jpg')
 
 class Prebuilt_Base(models.Model):
         id=models.AutoField(primary_key=True)

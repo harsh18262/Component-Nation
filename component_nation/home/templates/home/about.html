@@ -46,15 +46,7 @@ https://templatemo.com/tm-545-finance-business
           <div class="col-md-8 col-xs-12">
             <ul class="left-info">
               <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
-              <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="right-icons">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-phone"></i>777-100-8804</a></li>
             </ul>
           </div>
         </div>
@@ -112,8 +104,8 @@ https://templatemo.com/tm-545-finance-business
                   <div class="right-content">
                     <span>our solid background on finance</span>
                     <h2>Get to know about <em>our company</em></h2>
-                    <p>Fusce nec ultrices lectus. Duis nec scelerisque risus. Ut id tempor turpis, ac dignissim ipsum. Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem. 
-                    <br><br>Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p>
+                    <p>Component Nation is your ultimate destination for all Gaming Needs (Pre Built Pc,Gaming Consoles and Gaming Accessories). You will definitely find solution to all your gaming needs right under one roof with the best quality and cheapest price like no other.</p>
+                    <!-- <br><br>Pellentesque in sagittis lacus, vel auctor sem. Quisque eu quam eleifend, ullamcorper dui nec, luctus quam.</p> -->
                     <a href="" class="filled-button">Read More</a>
                   </div>
                 </div>
@@ -138,36 +130,22 @@ https://templatemo.com/tm-545-finance-business
               <span>Suspendisse a ante in neque iaculis lacinia</span>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="team-item">
-              <img src="assets/images/team_01.jpg" alt="">
-              <div class="down-content">
-                <h4>William Smith</h4>
-                <span>Co-Founder</span>
-                <p>In sem sem, dapibus non lacus auctor, ornare sollicitudin lacus. Aliquam ipsum urna, semper quis.</p>
-              </div>
+        {%for info in data%}
+        <div class="col-md-3">
+          <div class="team-item">
+            <img src="media/{{ info.img }}" alt="">
+            <div class="down-content">
+              <h4>{{info.Name}}</h4>
+              <span>{{info.Post}}</span>
+              <!-- <p>{{info.Description}}</p> -->
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="team-item">
-              <img src="assets/images/team_02.jpg" alt="">
-              <div class="down-content">
-                <h4>Mary Houston</h4>
-                <span>Chief Marketing Officer</span>
-                <p>In sem sem, dapibus non lacus auctor, ornare sollicitudin lacus. Aliquam ipsum urna, semper quis.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="team-item">
-              <img src="assets/images/team_03.jpg" alt="">
-              <div class="down-content">
-                <h4>Paul Walker</h4>
-                <span>Financial Analyst</span>
-                <p>In sem sem, dapibus non lacus auctor, ornare sollicitudin lacus. Aliquam ipsum urna, semper quis.</p>
-              </div>
-            </div>
-          </div>
+        </div>
+
+        {%endfor%}
+
+ 
+
         </div>
       </div>
     </div>
@@ -187,25 +165,25 @@ https://templatemo.com/tm-545-finance-business
             <div class="row">
               <div class="col-md-6">
                 <div class="count-area-content">
-                  <div class="count-digit">1112</div>
+                  <div class="count-digit">21</div>
                   <div class="count-title">Laptop</div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="count-area-content">
-                  <div class="count-digit">200</div>
+                  <div class="count-digit">4</div>
                   <div class="count-title">Desktop</div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="count-area-content">
-                  <div class="count-digit">3</div>
+                  <div class="count-digit">8</div>
                   <div class="count-title">Console</div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="count-area-content">
-                  <div class="count-digit">1</div>
+                  <div class="count-digit">7</div>
                   <div class="count-title">Accessories</div>
                 </div>
               </div>
