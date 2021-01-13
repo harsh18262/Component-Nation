@@ -42,3 +42,35 @@ def send_mail(receiver_email,url):
   with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
       server.login(sender_email, password)
       server.sendmail(sender_email, receiver_email,  msg.as_string())
+
+
+#overloaded to work for callback form
+def send_mail(receiver_email,email,Name,sub,body):
+  import requests
+  import smtplib, ssl
+
+  from email.mime.multipart import MIMEMultipart
+  from email.mime.text import MIMEText
+
+  port = 465  # For SSL
+  smtp_server = "smtp.gmail.com"
+  sender_email = "componentnation@gmail.com"  # Enter your address
+  password = ''
+  msg = MIMEMultipart('alternative')
+  msg['Subject'] = "Request"
+  msg['From'] = sender_email
+  msg['To'] = receiver_email
+
+  # Create the body of the message (a plain-text and an HTML version).
+  text = "Name: "+Name+"\nEmail: "+email+"\nSubject:"+sub+"\nMessage:\n"+body+"\n"
+
+  part1 = MIMEText(text, 'plain')
+
+
+  msg.attach(part1)
+
+
+  context = ssl.create_default_context()
+  with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+      server.login(sender_email, password)
+      server.sendmail(sender_email, receiver_email,  msg.as_string())

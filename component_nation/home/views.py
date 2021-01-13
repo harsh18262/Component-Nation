@@ -146,7 +146,17 @@ def email_req(request):
         a=None    
         return render(request,'home/email_request.html')
 
-
+def callback_req(request):
+    email=request.GET.get('email')
+    Name=str(request.GET.get('name'))
+    sub=str(request.GET.get('sub'))
+    body=str(request.GET.get('body'))
+    send_mail("componentnation@gmail.com",email,Name,sub,body)
+    email=None
+    Name=None
+    sub=None
+    body=None
+    return render(request,'home/callback_req.html')
 
 
 def temp(request):
