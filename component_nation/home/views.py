@@ -101,7 +101,7 @@ def update_laptops(request):
 
 def laptop_coding(request):
     dataall=Laptop_Coding_Base.objects.all()
-    data30k=about.objects.all()
+    data30k=Laptop_Coding_30k.objects.all()
     data40k=Laptop_Coding_40k.objects.all()
     data50k=Laptop_Coding_50k.objects.all()
     
