@@ -27,6 +27,7 @@ urlpatterns = [
     path('desktop', views.desktop,name='desktop'),
     path('contact', views.contact,name='contact'),
     path('update', views.update,name='update'),
+    path('update_laptops', views.update_laptops,name='update_laptops'),
     path('laptop_gaming', views.laptop_gaming,name='laptop_gaming'),
     path('laptop_coding', views.laptop_coding,name='laptop_coding'),
     path('email', views.email,name='email'),

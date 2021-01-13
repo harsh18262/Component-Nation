@@ -78,6 +78,26 @@ def update(request):
     
     return render(request,'home/update.html')
 
+def update_laptops(request):
+
+   
+    data_code=Laptop_Coding_Base.objects.all()
+    data_game=Laptop_Gaming_Base.objects.all()
+    
+
+    price=fetch_prices(data_code)
+    i=0
+    for item in data_code:
+        item.price=price[i]
+        i+=1
+        item.save()
+    price=fetch_prices(data_game)
+    i=0
+    for item in data_game:
+        item.price=price[i]
+        i+=1
+        item.save()
+    return render(request,'home/update_laptop.html')
 
 def laptop_coding(request):
     dataall=Laptop_Coding_Base.objects.all()
