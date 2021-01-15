@@ -151,7 +151,7 @@ def callback_req(request):
     Name=str(request.GET.get('name'))
     sub=str(request.GET.get('sub'))
     body=str(request.GET.get('body'))
-    send_mail("componentnation@gmail.com",email,Name,sub,body)
+    callback_mail("componentnation@gmail.com",email,Name,sub,body)
     email=None
     Name=None
     sub=None

@@ -1,3 +1,6 @@
+sender_email = "componentnation@gmail.com"  # Enter your address
+password = ''
+
 def send_mail(receiver_email,url):
   import requests
   import smtplib, ssl
@@ -7,8 +10,7 @@ def send_mail(receiver_email,url):
 
   port = 465  # For SSL
   smtp_server = "smtp.gmail.com"
-  sender_email = "componentnation@gmail.com"  # Enter your address
-  password = ''
+
   # Create message container - the correct MIME type is multipart/alternative.
   msg = MIMEMultipart('alternative')
   msg['Subject'] = "Thank You For Using Component Nation"
@@ -45,7 +47,7 @@ def send_mail(receiver_email,url):
 
 
 #overloaded to work for callback form
-def send_mail(receiver_email,email,Name,sub,body):
+def callback_mail(receiver_email,email,Name,sub,body):
   import requests
   import smtplib, ssl
 
@@ -54,8 +56,6 @@ def send_mail(receiver_email,email,Name,sub,body):
 
   port = 465  # For SSL
   smtp_server = "smtp.gmail.com"
-  sender_email = "componentnation@gmail.com"  # Enter your address
-  password = ''
   msg = MIMEMultipart('alternative')
   msg['Subject'] = "Request"
   msg['From'] = sender_email
