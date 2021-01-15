@@ -7,7 +7,7 @@ from mail import *
 import re
 
 from django.template import loader
-
+link=""
 # Create your views here.
 def home(request):
     
@@ -137,7 +137,7 @@ def email(request):
 def email_req(request):
     email=request.GET.get('email')
     a=str(request.GET.get('a'))
-    url="http://127.0.0.1:8000/email?a="+a
+    url=link+"/email?a="+a
     if(email==None):
         return render(request,'home/email_request.html')
     else:
