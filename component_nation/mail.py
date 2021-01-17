@@ -1,7 +1,7 @@
 sender_email = "componentnation@gmail.com"  # Enter your address
 password = ''
 
-def send_mail(receiver_email,url):
+def send_mail(receiver_email,html):
   import requests
   import smtplib, ssl
 
@@ -19,8 +19,6 @@ def send_mail(receiver_email,url):
 
   # Create the body of the message (a plain-text and an HTML version).
   text = " "
-  a=requests.get(url)
-  html = a.text
 
   # Record the MIME types of both parts - text/plain and text/html.
   part1 = MIMEText(text, 'plain')

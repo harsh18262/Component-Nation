@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from django.template.loader import render_to_string
 from .models import *
 from update_prices import *
 from mail import *
@@ -118,8 +119,7 @@ def laptop_gaming(request):
     return render(request,'home/laptop/gaming.html',{'dataall':dataall,'data30k':data30k,'data40k':data40k,'data50k':data50k})
 
 
-def email(request):
-    a=request.GET.get('a')
+def email_gen(a):
     if(a=='1'):
         data=Prebuilt_70k.objects.all()
         t=total(data)
@@ -132,12 +132,13 @@ def email(request):
     elif(a=='4'):
         data=Prebuilt_1L.objects.all()
         t=total(data)
-    return render(request,'home/email.html',{'data':data,'total':t})
+    html = render_to_string('home/email.html', {'data':data,'total':t})
+    return(html)
 
 def email_req(request):
     email=request.GET.get('email')
     a=str(request.GET.get('a'))
-    url=link+"/email?a="+a
+    url=email_gen(a)
     if(email==None):
         return render(request,'home/email_request.html')
     else:
@@ -160,9 +161,7 @@ def callback_req(request):
 
 
 def temp(request):
-    #dataa=about.objects.all()
-    dataa=about.objects.all()
-    return render(request,'home/temp.html',{'data1':dataa})
+    return render(request,'home/temp.html')
 
 
 def console(request):
