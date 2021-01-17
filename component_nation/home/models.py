@@ -7,6 +7,8 @@ class about(models.Model):
     Post=models.TextField(default=" ")
     Description=models.TextField(default=" ")
     img = models.ImageField(upload_to='about/images',default='default.jpg')
+    link1=models.URLField(default=" ")
+    link2=models.URLField(default=" ")
 
 class Prebuilt_Base(models.Model):
         id=models.AutoField(primary_key=True)

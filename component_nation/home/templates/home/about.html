@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-finance-business.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 <!--
 
 Finance Business TemplateMo
@@ -70,9 +71,6 @@ https://templatemo.com/tm-545-finance-business
               <li class="nav-item active">
                 <a class="nav-link" href="{% url 'about' %}">About Us</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="{% url 'desktop' %}">Our Services</a>
-              </li> -->
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
               </li>
@@ -136,7 +134,8 @@ https://templatemo.com/tm-545-finance-business
             <div class="down-content">
               <h4>{{info.Name}}</h4>
               <span>{{info.Post}}</span>
-               <p>{{info.Description}}</p> 
+               <p><a href="{{info.link1}}"><i class="fa fa-github fa-3x" aria-hidden="true" style="padding-right:24px"></i></a> 
+               <a href="{{info.link2}}"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a></p>
             </div>
           </div>
         </div>
