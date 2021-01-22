@@ -17,7 +17,7 @@ def init_selenium():
     CHROMEDRIVER_PATH = '/usr/bin/chromedriver'
     WINDOW_SIZE = "1920,1080"
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
+#    chrome_options.add_argument("--headless")
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
     chrome_options.binary_location = CHROME_PATH
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,chrome_options=chrome_options)
@@ -66,6 +66,7 @@ def total(data):
         else:
             total = total + int(re.sub("[^0-9]","",item.price))
     # total="{:,}".format(total)
+    total=total/100
     total=locale.currency(total, grouping=True)
 
     return total
