@@ -1,4 +1,4 @@
-# component_nation
+# Component Nation
 
 To see the code for mailing function refer [mail.py](https://github.com/harsh18262/component_nation/blob/main/component_nation/mail.py)
 
