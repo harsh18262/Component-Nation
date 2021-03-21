@@ -36,6 +36,7 @@ urlpatterns = [
     path('compare', views.compare,name='compare'),
     path('temp', views.temp,name='temp'),
     path('callback_req', views.callback_req,name='callback_req'),
+    path('api/', include('api.urls')),
 ]
 
 urlpatterns += static(settings.ASSETS_URL, document_root=settings.ASSETS_ROOT)
