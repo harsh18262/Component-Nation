@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '%c^*&yop(3^_lnp#5%z9v3h%#qvs!@9y^ox#@2&z7qfbq8*f-!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'FALSE'
 
 ALLOWED_HOSTS = ['*']
 
@@ -54,11 +54,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'component_nation.urls'
-
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
