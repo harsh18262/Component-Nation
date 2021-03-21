@@ -123,6 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = BASE_DIR / 'static_files'
+
 ASSETS_ROOT = BASE_DIR / 'Web_data' / 'assets'
 
 ASSETS_URL = '/assets/'
